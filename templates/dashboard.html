@@ -1,0 +1,335 @@
+{% extends "base.html" %}
+
+{% block title %}Dashboard{% endblock %}
+
+{% block content %}
+
+<div class="dashboard">
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+
+        <div class="logo">
+            <i class="fa-solid fa-building"></i>
+            <h2>EMS</h2>
+        </div>
+
+        <ul class="menu">
+
+            <li class="active">
+                <i class="fa-solid fa-house"></i>
+                <span>Dashboard</span>
+            </li>
+
+            <li>
+                <i class="fa-solid fa-users"></i>
+                <span>Employees</span>
+            </li>
+
+            <li>
+                <i class="fa-solid fa-building-user"></i>
+                <span>Departments</span>
+            </li>
+
+            <li>
+                <i class="fa-solid fa-chart-line"></i>
+                <span>Reports</span>
+            </li>
+
+            <li>
+                <i class="fa-solid fa-gear"></i>
+                <span>Settings</span>
+            </li>
+
+            <li>
+                <i class="fa-solid fa-right-from-bracket"></i>
+                <span>Logout</span>
+            </li>
+
+        </ul>
+
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+
+        <!-- Header -->
+        <header class="topbar">
+
+            <div>
+
+                <h1>Employee Management Dashboard</h1>
+
+                <p>Manage your organisation efficiently.</p>
+
+            </div>
+
+            <div class="profile">
+
+                <i class="fa-solid fa-bell"></i>
+
+                <img src="https://ui-avatars.com/api/?name=Admin&background=2563eb&color=fff">
+
+                <span>Admin</span>
+
+            </div>
+
+        </header>
+
+        <!-- Welcome -->
+
+        <section class="welcome">
+
+            <h2>Welcome Back 👋</h2>
+
+            <p>Have a productive day managing your employees.</p>
+
+        </section>
+
+        <!-- Dashboard Cards -->
+
+        <section class="cards">
+
+            <div class="card blue">
+
+                <i class="fa-solid fa-users"></i>
+
+                <h3>125</h3>
+
+                <p>Total Employees</p>
+
+            </div>
+
+            <div class="card green">
+
+                <i class="fa-solid fa-building"></i>
+
+                <h3>10</h3>
+
+                <p>Departments</p>
+
+            </div>
+
+            <div class="card orange">
+
+                <i class="fa-solid fa-briefcase"></i>
+
+                <h3>18</h3>
+
+                <p>Projects</p>
+
+            </div>
+
+            <div class="card red">
+
+                <i class="fa-solid fa-chart-line"></i>
+
+                <h3>96%</h3>
+
+                <p>Attendance</p>
+
+            </div>
+
+        </section>
+
+        <!-- Search -->
+
+        <section class="toolbar">
+
+            <input
+                type="text"
+                placeholder="Search Employee...">
+
+            <button>
+
+                <i class="fa-solid fa-plus"></i>
+
+                Add Employee
+
+            </button>
+
+        </section>
+
+        <!-- Employee Table -->
+
+        <div class="table-section">
+
+            <table>
+
+                <thead>
+
+                    <tr>
+
+                        <th>ID</th>
+
+                        <th>Photo</th>
+
+                        <th>Name</th>
+
+                        <th>Department</th>
+
+                        <th>Position</th>
+
+                        <th>Salary</th>
+
+                        <th>Status</th>
+
+                        <th>Action</th>
+
+                    </tr>
+
+                </thead>
+
+                <tbody>
+
+                    <tr>
+
+                        <td>101</td>
+
+                        <td>
+                            <img src="https://ui-avatars.com/api/?name=John+Smith&background=2563eb&color=fff">
+                        </td>
+
+                        <td>John Smith</td>
+
+                        <td>AI Team</td>
+
+                        <td>ML Engineer</td>
+
+                        <td>₹50,000</td>
+
+                        <td>
+
+                            <span class="status active">
+
+                                Active
+
+                            </span>
+
+                        </td>
+
+                        <td>
+
+                            <button class="edit">
+
+                                <i class="fa-solid fa-pen"></i>
+
+                            </button>
+
+                            <button class="delete">
+
+                                <i class="fa-solid fa-trash"></i>
+
+                            </button>
+
+                        </td>
+
+                    </tr>
+
+                    <tr>
+
+                        <td>102</td>
+
+                        <td>
+                            <img src="https://ui-avatars.com/api/?name=Alice+Roy&background=16a34a&color=fff">
+                        </td>
+
+                        <td>Alice Roy</td>
+
+                        <td>HR</td>
+
+                        <td>Manager</td>
+
+                        <td>₹60,000</td>
+
+                        <td>
+
+                            <span class="status active">
+
+                                Active
+
+                            </span>
+
+                        </td>
+
+                        <td>
+
+                            <button class="edit">
+
+                                <i class="fa-solid fa-pen"></i>
+
+                            </button>
+
+                            <button class="delete">
+
+                                <i class="fa-solid fa-trash"></i>
+
+                            </button>
+
+                        </td>
+
+                    </tr>
+
+                    <tr>
+
+                        <td>103</td>
+
+                        <td>
+                            <img src="https://ui-avatars.com/api/?name=Rahul+Kumar&background=ea580c&color=fff">
+                        </td>
+
+                        <td>Rahul Kumar</td>
+
+                        <td>Finance</td>
+
+                        <td>Analyst</td>
+
+                        <td>₹45,000</td>
+
+                        <td>
+
+                            <span class="status inactive">
+
+                                Inactive
+
+                            </span>
+
+                        </td>
+
+                        <td>
+
+                            <button class="edit">
+
+                                <i class="fa-solid fa-pen"></i>
+
+                            </button>
+
+                            <button class="delete">
+
+                                <i class="fa-solid fa-trash"></i>
+
+                            </button>
+
+                        </td>
+
+                    </tr>
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+        <!-- Footer -->
+
+        <footer>
+
+            © 2026 Employee Management System | Developed using Flask
+
+        </footer>
+
+    </main>
+
+</div>
+
+{% endblock %}

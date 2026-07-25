@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Management System</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+</head>
+<body>
+
+<nav>
+
+    <div class="logo">
+        <i class="fa-solid fa-building"></i>
+        Employee Management
+    </div>
+
+    <div class="admin">
+
+        <i class="fa-solid fa-bell"></i>
+
+        <i class="fa-solid fa-user"></i>
+
+        Admin
+
+    </div>
+
+</nav>
+
+<div class="container">
+
+<h1>Welcome Back 👋</h1>
+
+<p>Manage all your employees from one place.</p>
+
+<div class="cards">
+
+<div class="card">
+
+<h2>125</h2>
+
+<p>Total Employees</p>
+
+</div>
+
+<div class="card">
+
+<h2>10</h2>
+
+<p>Departments</p>
+
+</div>
+
+<div class="card">
+
+<h2>18</h2>
+
+<p>Projects</p>
+
+</div>
+
+<div class="card">
+
+<h2>96%</h2>
+
+<p>Attendance</p>
+
+</div>
+
+</div>
+
+<div class="search-box">
+
+<input type="text" placeholder="Search Employee...">
+
+<button>
+
+<i class="fa-solid fa-plus"></i>
+
+Add Employee
+
+</button>
+
+</div>
+
+<table>
+
+<tr>
+
+<th>ID</th>
+
+<th>Name</th>
+
+<th>Department</th>
+
+<th>Position</th>
+
+<th>Status</th>
+
+<th>Action</th>
+
+</tr>
+
+<tr>
+
+<td>101</td>
+
+<td>John</td>
+
+<td>AI Team</td>
+
+<td>ML Engineer</td>
+
+<td><span class="active">Active</span></td>
+
+<td>
+
+<button class="edit">Edit</button>
+
+<button class="delete">Delete</button>
+
+</td>
+
+</tr>
+
+<tr>
+
+<td>102</td>
+
+<td>Alice</td>
+
+<td>HR</td>
+
+<td>Manager</td>
+
+<td><span class="active">Active</span></td>
+
+<td>
+
+<button class="edit">Edit</button>
+
+<button class="delete">Delete</button>
+
+</td>
+
+</tr>
+
+</table>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,554 @@
+/* ===============================
+   GOOGLE FONT
+================================== */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+/* ===============================
+   GLOBAL
+================================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+body{
+    background:#f1f5f9;
+    color:#1e293b;
+}
+
+.dashboard{
+    display:flex;
+}
+
+/* ===============================
+   SIDEBAR
+================================== */
+
+.sidebar{
+    width:250px;
+    height:100vh;
+    background:#0f172a;
+    position:fixed;
+    left:0;
+    top:0;
+    color:white;
+    padding:30px 20px;
+}
+
+.logo{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    margin-bottom:40px;
+}
+
+.logo i{
+    font-size:28px;
+    color:#3b82f6;
+}
+
+.logo h2{
+    font-size:28px;
+}
+
+.menu{
+    list-style:none;
+}
+
+.menu li{
+    display:flex;
+    align-items:center;
+    gap:15px;
+    padding:15px;
+    margin-bottom:12px;
+    border-radius:10px;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+.menu li i{
+    width:25px;
+}
+
+.menu li:hover{
+    background:#2563eb;
+}
+
+.menu .active{
+    background:#2563eb;
+}
+
+/* ===============================
+   MAIN CONTENT
+================================== */
+
+.main-content{
+    margin-left:250px;
+    width:calc(100% - 250px);
+    padding:30px;
+}
+
+/* ===============================
+   TOPBAR
+================================== */
+
+.topbar{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:40px;
+}
+
+.topbar h1{
+    font-size:32px;
+    color:#1e3a8a;
+}
+
+.topbar p{
+    margin-top:5px;
+    color:#64748b;
+}
+
+.profile{
+    display:flex;
+    align-items:center;
+    gap:15px;
+}
+
+.profile img{
+    width:45px;
+    height:45px;
+    border-radius:50%;
+}
+
+.profile i{
+    font-size:22px;
+    cursor:pointer;
+}
+
+.profile span{
+    font-weight:600;
+}
+
+/* ===============================
+   WELCOME
+================================== */
+
+.welcome{
+    margin-bottom:35px;
+}
+
+.welcome h2{
+    font-size:38px;
+    color:#1e3a8a;
+}
+
+.welcome p{
+    margin-top:8px;
+    color:#64748b;
+}
+
+/* ===============================
+   DASHBOARD CARDS
+================================== */
+
+.cards{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:25px;
+    margin-bottom:40px;
+}
+
+.card{
+    background:white;
+    border-radius:18px;
+    padding:30px;
+    box-shadow:0 10px 25px rgba(0,0,0,.08);
+    transition:.3s;
+    text-align:center;
+}
+
+.card:hover{
+    transform:translateY(-8px);
+}
+
+.card i{
+    font-size:40px;
+    margin-bottom:20px;
+}
+
+.card h2{
+    font-size:36px;
+    margin-bottom:10px;
+}
+
+.card p{
+    color:#64748b;
+}
+
+.blue{
+    border-top:5px solid #2563eb;
+}
+
+.green{
+    border-top:5px solid #16a34a;
+}
+
+.orange{
+    border-top:5px solid #ea580c;
+}
+
+.red{
+    border-top:5px solid #dc2626;
+}
+
+.blue i{
+    color:#2563eb;
+}
+
+.green i{
+    color:#16a34a;
+}
+
+.orange i{
+    color:#ea580c;
+}
+
+.red i{
+    color:#dc2626;
+}
+
+/* ===============================
+   TOOLBAR
+================================== */
+
+.toolbar{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:20px;
+    margin-bottom:30px;
+}
+
+.toolbar input{
+    flex:1;
+    padding:15px;
+    border:1px solid #cbd5e1;
+    border-radius:10px;
+    font-size:16px;
+    outline:none;
+}
+
+.toolbar input:focus{
+    border-color:#2563eb;
+}
+
+.toolbar button{
+    background:#2563eb;
+    color:white;
+    border:none;
+    padding:15px 25px;
+    border-radius:10px;
+    font-size:16px;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.toolbar button:hover{
+    background:#1d4ed8;
+}
+/* ===============================
+   EMPLOYEE TABLE
+================================== */
+
+.table-section{
+    background:#ffffff;
+    padding:25px;
+    border-radius:18px;
+    box-shadow:0 10px 25px rgba(0,0,0,0.08);
+    overflow-x:auto;
+}
+
+table{
+    width:100%;
+    border-collapse:collapse;
+}
+
+table thead{
+    background:#2563eb;
+    color:white;
+}
+
+table th{
+    padding:18px;
+    text-align:left;
+    font-size:15px;
+}
+
+table td{
+    padding:18px;
+    border-bottom:1px solid #e5e7eb;
+    vertical-align:middle;
+}
+
+table tbody tr{
+    transition:0.3s;
+}
+
+table tbody tr:hover{
+    background:#f8fafc;
+}
+
+table img{
+    width:45px;
+    height:45px;
+    border-radius:50%;
+    object-fit:cover;
+}
+
+/* ===============================
+   STATUS BADGES
+================================== */
+
+.status{
+    padding:8px 18px;
+    border-radius:25px;
+    font-size:13px;
+    font-weight:600;
+}
+
+.status.active{
+    background:#dcfce7;
+    color:#15803d;
+}
+
+.status.inactive{
+    background:#fee2e2;
+    color:#b91c1c;
+}
+
+/* ===============================
+   ACTION BUTTONS
+================================== */
+
+.edit,
+.delete{
+
+    width:40px;
+    height:40px;
+    border:none;
+    border-radius:10px;
+    color:white;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.edit{
+
+    background:#f59e0b;
+    margin-right:8px;
+
+}
+
+.edit:hover{
+
+    background:#d97706;
+    transform:scale(1.08);
+
+}
+
+.delete{
+
+    background:#ef4444;
+
+}
+
+.delete:hover{
+
+    background:#dc2626;
+    transform:scale(1.08);
+
+}
+
+/* ===============================
+   FOOTER
+================================== */
+
+footer{
+
+    margin-top:40px;
+
+    text-align:center;
+
+    color:#64748b;
+
+    padding:20px;
+
+    font-size:15px;
+
+}
+
+/* ===============================
+   SCROLLBAR
+================================== */
+
+::-webkit-scrollbar{
+
+    width:8px;
+
+}
+
+::-webkit-scrollbar-thumb{
+
+    background:#2563eb;
+    border-radius:20px;
+
+}
+
+::-webkit-scrollbar-track{
+
+    background:#e5e7eb;
+
+}
+
+/* ===============================
+   ANIMATIONS
+================================== */
+
+.card,
+.table-section,
+.toolbar{
+
+    animation:fadeIn .8s ease;
+
+}
+
+@keyframes fadeIn{
+
+    from{
+
+        opacity:0;
+        transform:translateY(20px);
+
+    }
+
+    to{
+
+        opacity:1;
+        transform:translateY(0);
+
+    }
+
+}
+
+/* ===============================
+   RESPONSIVE DESIGN
+================================== */
+
+@media(max-width:1100px){
+
+    .cards{
+
+        grid-template-columns:repeat(2,1fr);
+
+    }
+
+}
+
+@media(max-width:900px){
+
+    .sidebar{
+
+        width:80px;
+
+    }
+
+    .sidebar h2,
+    .menu span{
+
+        display:none;
+
+    }
+
+    .logo{
+
+        justify-content:center;
+
+    }
+
+    .menu li{
+
+        justify-content:center;
+
+    }
+
+    .main-content{
+
+        margin-left:80px;
+        width:calc(100% - 80px);
+
+    }
+
+}
+
+@media(max-width:768px){
+
+    .topbar{
+
+        flex-direction:column;
+        align-items:flex-start;
+        gap:20px;
+
+    }
+
+    .toolbar{
+
+        flex-direction:column;
+
+    }
+
+    .toolbar input,
+    .toolbar button{
+
+        width:100%;
+
+    }
+
+    .cards{
+
+        grid-template-columns:1fr;
+
+    }
+
+}
+
+@media(max-width:500px){
+
+    .main-content{
+
+        padding:20px;
+
+    }
+
+    .welcome h2{
+
+        font-size:30px;
+
+    }
+
+    .topbar h1{
+
+        font-size:26px;
+
+    }
+
+    table{
+
+        min-width:850px;
+
+    }
+
+}
