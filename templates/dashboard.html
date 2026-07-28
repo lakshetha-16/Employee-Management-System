@@ -132,21 +132,39 @@
 
         </section>
 
-        <!-- Search -->
+        <!-- Search Toolbar -->
 
         <section class="toolbar">
 
-            <input
-                type="text"
-                placeholder="Search Employee...">
+            <form method="GET" action="/" style="display:flex;gap:15px;flex:1;">
 
-            <button>
+                <input
+                    type="text"
+                    name="search"
+                    placeholder="Search Employee..."
+                    value="{{ search }}">
 
-                <i class="fa-solid fa-plus"></i>
+                <button type="submit">
 
-                Add Employee
+                    <i class="fa-solid fa-magnifying-glass"></i>
 
-            </button>
+                    Search
+
+                </button>
+
+            </form>
+
+            <a href="/add" style="text-decoration:none;">
+
+                <button type="button">
+
+                    <i class="fa-solid fa-plus"></i>
+
+                    Add Employee
+
+                </button>
+
+            </a>
 
         </section>
 
@@ -182,27 +200,32 @@
 
                 <tbody>
 
-                    <tr>
+                {% if employees %}
 
-                        <td>101</td>
+                    {% for employee in employees %}
+                                        <tr>
+
+                        <td>{{ employee["id"] }}</td>
 
                         <td>
-                            <img src="https://ui-avatars.com/api/?name=John+Smith&background=2563eb&color=fff">
+
+                            <img src="https://ui-avatars.com/api/?name={{ employee['name']|replace(' ','+') }}&background=2563eb&color=fff">
+
                         </td>
 
-                        <td>John Smith</td>
+                        <td>{{ employee["name"] }}</td>
 
-                        <td>AI Team</td>
+                        <td>{{ employee["department"] }}</td>
 
-                        <td>ML Engineer</td>
+                        <td>{{ employee["position"] }}</td>
 
-                        <td>₹50,000</td>
+                        <td>₹{{ employee["salary"] }}</td>
 
                         <td>
 
-                            <span class="status active">
+                            <span class="status {% if employee['status'] == 'Active' %}active{% else %}inactive{% endif %}">
 
-                                Active
+                                {{ employee["status"] }}
 
                             </span>
 
@@ -210,109 +233,50 @@
 
                         <td>
 
-                            <button class="edit">
+                            <!-- Edit Button -->
 
-                                <i class="fa-solid fa-pen"></i>
+                            <a href="/edit/{{ employee['id'] }}">
 
-                            </button>
+                                <button class="edit">
 
-                            <button class="delete">
+                                    <i class="fa-solid fa-pen"></i>
 
-                                <i class="fa-solid fa-trash"></i>
+                                </button>
 
-                            </button>
+                            </a>
+
+                            <!-- Delete Button -->
+
+                            <a href="/delete/{{ employee['id'] }}"
+                               onclick="return confirm('Are you sure you want to delete this employee?');">
+
+                                <button class="delete">
+
+                                    <i class="fa-solid fa-trash"></i>
+
+                                </button>
+
+                            </a>
 
                         </td>
 
                     </tr>
+
+                    {% endfor %}
+
+                {% else %}
 
                     <tr>
 
-                        <td>102</td>
+                        <td colspan="8" style="text-align:center;padding:30px;">
 
-                        <td>
-                            <img src="https://ui-avatars.com/api/?name=Alice+Roy&background=16a34a&color=fff">
-                        </td>
-
-                        <td>Alice Roy</td>
-
-                        <td>HR</td>
-
-                        <td>Manager</td>
-
-                        <td>₹60,000</td>
-
-                        <td>
-
-                            <span class="status active">
-
-                                Active
-
-                            </span>
-
-                        </td>
-
-                        <td>
-
-                            <button class="edit">
-
-                                <i class="fa-solid fa-pen"></i>
-
-                            </button>
-
-                            <button class="delete">
-
-                                <i class="fa-solid fa-trash"></i>
-
-                            </button>
+                            <strong>No employees found.</strong>
 
                         </td>
 
                     </tr>
 
-                    <tr>
-
-                        <td>103</td>
-
-                        <td>
-                            <img src="https://ui-avatars.com/api/?name=Rahul+Kumar&background=ea580c&color=fff">
-                        </td>
-
-                        <td>Rahul Kumar</td>
-
-                        <td>Finance</td>
-
-                        <td>Analyst</td>
-
-                        <td>₹45,000</td>
-
-                        <td>
-
-                            <span class="status inactive">
-
-                                Inactive
-
-                            </span>
-
-                        </td>
-
-                        <td>
-
-                            <button class="edit">
-
-                                <i class="fa-solid fa-pen"></i>
-
-                            </button>
-
-                            <button class="delete">
-
-                                <i class="fa-solid fa-trash"></i>
-
-                            </button>
-
-                        </td>
-
-                    </tr>
+                {% endif %}
 
                 </tbody>
 

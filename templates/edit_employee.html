@@ -1,0 +1,157 @@
+{% extends "base.html" %}
+
+{% block title %}Edit Employee{% endblock %}
+
+{% block content %}
+
+<div class="dashboard">
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+
+        <div class="logo">
+            <i class="fa-solid fa-building"></i>
+            <h2>EMS</h2>
+        </div>
+
+        <ul class="menu">
+
+            <li>
+                <a href="/" style="text-decoration:none;color:white;">
+                    <i class="fa-solid fa-house"></i>
+                    <span>Dashboard</span>
+                </a>
+            </li>
+
+            <li class="active">
+                <i class="fa-solid fa-user-pen"></i>
+                <span>Edit Employee</span>
+            </li>
+
+        </ul>
+
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+
+        <!-- Header -->
+        <header class="topbar">
+
+            <div>
+                <h1>Edit Employee</h1>
+                <p>Update employee information.</p>
+            </div>
+
+            <div class="profile">
+                <i class="fa-solid fa-user"></i>
+                <span>Admin</span>
+            </div>
+
+        </header>
+
+        <!-- Edit Form -->
+        <div class="table-section">
+
+            <form method="POST">
+
+                <div style="margin-bottom:20px;">
+
+                    <label><strong>Employee Name</strong></label><br><br>
+
+                    <input
+                        type="text"
+                        name="name"
+                        value="{{ employee['name'] }}"
+                        required
+                        style="width:100%;padding:12px;border:1px solid #ccc;border-radius:8px;">
+
+                </div>
+
+                <div style="margin-bottom:20px;">
+
+                    <label><strong>Department</strong></label><br><br>
+
+                    <input
+                        type="text"
+                        name="department"
+                        value="{{ employee['department'] }}"
+                        required
+                        style="width:100%;padding:12px;border:1px solid #ccc;border-radius:8px;">
+
+                </div>
+
+                <div style="margin-bottom:20px;">
+
+                    <label><strong>Position</strong></label><br><br>
+
+                    <input
+                        type="text"
+                        name="position"
+                        value="{{ employee['position'] }}"
+                        required
+                        style="width:100%;padding:12px;border:1px solid #ccc;border-radius:8px;">
+
+                </div>
+
+                <div style="margin-bottom:20px;">
+
+                    <label><strong>Salary</strong></label><br><br>
+
+                    <input
+                        type="number"
+                        name="salary"
+                        value="{{ employee['salary'] }}"
+                        required
+                        style="width:100%;padding:12px;border:1px solid #ccc;border-radius:8px;">
+
+                </div>
+
+                <div style="margin-bottom:30px;">
+
+                    <label><strong>Status</strong></label><br><br>
+
+                    <select
+                        name="status"
+                        style="width:100%;padding:12px;border:1px solid #ccc;border-radius:8px;">
+
+                        <option value="Active"
+                        {% if employee['status']=="Active" %}selected{% endif %}>
+                        Active
+                        </option>
+
+                        <option value="Inactive"
+                        {% if employee['status']=="Inactive" %}selected{% endif %}>
+                        Inactive
+                        </option>
+
+                    </select>
+
+                </div>
+
+                <button
+                    type="submit"
+                    style="background:#2563eb;color:white;padding:12px 25px;border:none;border-radius:8px;cursor:pointer;font-size:16px;">
+
+                    <i class="fa-solid fa-floppy-disk"></i>
+                    Update Employee
+
+                </button>
+
+                <a
+                    href="/"
+                    style="margin-left:15px;text-decoration:none;color:#2563eb;font-weight:bold;">
+
+                    Cancel
+
+                </a>
+
+            </form>
+
+        </div>
+
+    </main>
+
+</div>
+
+{% endblock %}
