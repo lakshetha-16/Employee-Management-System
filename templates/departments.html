@@ -1,0 +1,161 @@
+{% extends "base.html" %}
+
+{% block title %}Departments{% endblock %}
+
+{% block content %}
+
+<div class="dashboard">
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+
+        <div class="logo">
+            <i class="fa-solid fa-building"></i>
+            <h2>EMS</h2>
+        </div>
+
+        <ul class="menu">
+
+            <li>
+                <a href="/" style="text-decoration:none;color:inherit;">
+                    <i class="fa-solid fa-house"></i>
+                    <span>Dashboard</span>
+                </a>
+            </li>
+
+            <li>
+                <a href="/employees" style="text-decoration:none;color:inherit;">
+                    <i class="fa-solid fa-users"></i>
+                    <span>Employees</span>
+                </a>
+            </li>
+
+            <li class="active">
+                <a href="/departments" style="text-decoration:none;color:inherit;">
+                    <i class="fa-solid fa-building-user"></i>
+                    <span>Departments</span>
+                </a>
+            </li>
+
+            <li>
+                <a href="/reports" style="text-decoration:none;color:inherit;">
+                    <i class="fa-solid fa-chart-line"></i>
+                    <span>Reports</span>
+                </a>
+            </li>
+
+            <li>
+                <a href="/settings" style="text-decoration:none;color:inherit;">
+                    <i class="fa-solid fa-gear"></i>
+                    <span>Settings</span>
+                </a>
+            </li>
+
+            <li>
+                <a href="/logout" style="text-decoration:none;color:inherit;">
+                    <i class="fa-solid fa-right-from-bracket"></i>
+                    <span>Logout</span>
+                </a>
+            </li>
+
+        </ul>
+
+    </aside>
+
+    <!-- Main Content -->
+
+    <main class="main-content">
+
+        <header class="topbar">
+
+            <div>
+
+                <h1>Departments</h1>
+
+                <p>Department Overview</p>
+
+            </div>
+
+        </header>
+
+        <!-- Cards -->
+
+        <section class="cards">
+
+            <div class="card blue">
+
+                <i class="fa-solid fa-building"></i>
+
+                <h3>{{ departments|length }}</h3>
+
+                <p>Total Departments</p>
+
+            </div>
+
+            <div class="card green">
+
+                <i class="fa-solid fa-users"></i>
+
+                <h3>
+                    {% set total = namespace(value=0) %}
+                    {% for d in departments %}
+                        {% set total.value = total.value + d["total"] %}
+                    {% endfor %}
+                    {{ total.value }}
+                </h3>
+
+                <p>Total Employees</p>
+
+            </div>
+
+        </section>
+
+        <!-- Table -->
+
+        <div class="table-section">
+
+            <table>
+
+                <thead>
+
+                    <tr>
+
+                        <th>Department</th>
+
+                        <th>Total Employees</th>
+
+                    </tr>
+
+                </thead>
+
+                <tbody>
+
+                {% for dept in departments %}
+
+                    <tr>
+
+                        <td>{{ dept["department"] }}</td>
+
+                        <td>{{ dept["total"] }}</td>
+
+                    </tr>
+
+                {% endfor %}
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+        <footer>
+
+            © 2026 Employee Management System
+
+        </footer>
+
+    </main>
+
+</div>
+
+{% endblock %}

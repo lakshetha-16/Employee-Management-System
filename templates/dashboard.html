@@ -17,33 +17,45 @@
         <ul class="menu">
 
             <li class="active">
-                <i class="fa-solid fa-house"></i>
-                <span>Dashboard</span>
+                <a href="/" style="text-decoration:none;color:inherit;display:flex;align-items:center;gap:10px;">
+                    <i class="fa-solid fa-house"></i>
+                    <span>Dashboard</span>
+                </a>
             </li>
 
             <li>
-                <i class="fa-solid fa-users"></i>
-                <span>Employees</span>
+                <a href="/employees" style="text-decoration:none;color:inherit;display:flex;align-items:center;gap:10px;">
+                    <i class="fa-solid fa-users"></i>
+                    <span>Employees</span>
+                </a>
             </li>
 
             <li>
-                <i class="fa-solid fa-building-user"></i>
-                <span>Departments</span>
+                <a href="/departments" style="text-decoration:none;color:inherit;display:flex;align-items:center;gap:10px;">
+                    <i class="fa-solid fa-building-user"></i>
+                    <span>Departments</span>
+                </a>
             </li>
 
             <li>
-                <i class="fa-solid fa-chart-line"></i>
-                <span>Reports</span>
+                <a href="/reports" style="text-decoration:none;color:inherit;display:flex;align-items:center;gap:10px;">
+                    <i class="fa-solid fa-chart-line"></i>
+                    <span>Reports</span>
+                </a>
             </li>
 
             <li>
-                <i class="fa-solid fa-gear"></i>
-                <span>Settings</span>
+                <a href="/settings" style="text-decoration:none;color:inherit;display:flex;align-items:center;gap:10px;">
+                    <i class="fa-solid fa-gear"></i>
+                    <span>Settings</span>
+                </a>
             </li>
 
             <li>
-                <i class="fa-solid fa-right-from-bracket"></i>
-                <span>Logout</span>
+                <a href="/logout" style="text-decoration:none;color:inherit;display:flex;align-items:center;gap:10px;">
+                    <i class="fa-solid fa-right-from-bracket"></i>
+                    <span>Logout</span>
+                </a>
             </li>
 
         </ul>
@@ -57,83 +69,54 @@
         <header class="topbar">
 
             <div>
-
                 <h1>Employee Management Dashboard</h1>
-
                 <p>Manage your organisation efficiently.</p>
-
             </div>
 
             <div class="profile">
-
                 <i class="fa-solid fa-bell"></i>
-
                 <img src="https://ui-avatars.com/api/?name=Admin&background=2563eb&color=fff">
-
                 <span>Admin</span>
-
             </div>
 
         </header>
 
         <!-- Welcome -->
-
         <section class="welcome">
-
             <h2>Welcome Back 👋</h2>
-
             <p>Have a productive day managing your employees.</p>
-
         </section>
 
         <!-- Dashboard Cards -->
-
         <section class="cards">
 
             <div class="card blue">
-
                 <i class="fa-solid fa-users"></i>
-
-                <h3>125</h3>
-
+                <h3>{{ total_employees }}</h3>
                 <p>Total Employees</p>
-
             </div>
 
             <div class="card green">
-
                 <i class="fa-solid fa-building"></i>
-
-                <h3>10</h3>
-
+                <h3>{{ total_departments }}</h3>
                 <p>Departments</p>
-
             </div>
 
             <div class="card orange">
-
                 <i class="fa-solid fa-briefcase"></i>
-
-                <h3>18</h3>
-
+                <h3>{{ total_projects }}</h3>
                 <p>Projects</p>
-
             </div>
 
             <div class="card red">
-
                 <i class="fa-solid fa-chart-line"></i>
-
-                <h3>96%</h3>
-
+                <h3>{{ attendance }}%</h3>
                 <p>Attendance</p>
-
             </div>
 
         </section>
 
-        <!-- Search Toolbar -->
-
+        <!-- Search -->
         <section class="toolbar">
 
             <form method="GET" action="/" style="display:flex;gap:15px;flex:1;">
@@ -145,31 +128,22 @@
                     value="{{ search }}">
 
                 <button type="submit">
-
                     <i class="fa-solid fa-magnifying-glass"></i>
-
                     Search
-
                 </button>
 
             </form>
 
             <a href="/add" style="text-decoration:none;">
-
                 <button type="button">
-
                     <i class="fa-solid fa-plus"></i>
-
                     Add Employee
-
                 </button>
-
             </a>
 
         </section>
 
         <!-- Employee Table -->
-
         <div class="table-section">
 
             <table>
@@ -177,23 +151,14 @@
                 <thead>
 
                     <tr>
-
                         <th>ID</th>
-
                         <th>Photo</th>
-
                         <th>Name</th>
-
                         <th>Department</th>
-
                         <th>Position</th>
-
                         <th>Salary</th>
-
                         <th>Status</th>
-
                         <th>Action</th>
-
                     </tr>
 
                 </thead>
@@ -203,14 +168,13 @@
                 {% if employees %}
 
                     {% for employee in employees %}
-                                        <tr>
+
+                    <tr>
 
                         <td>{{ employee["id"] }}</td>
 
                         <td>
-
                             <img src="https://ui-avatars.com/api/?name={{ employee['name']|replace(' ','+') }}&background=2563eb&color=fff">
-
                         </td>
 
                         <td>{{ employee["name"] }}</td>
@@ -222,40 +186,24 @@
                         <td>₹{{ employee["salary"] }}</td>
 
                         <td>
-
-                            <span class="status {% if employee['status'] == 'Active' %}active{% else %}inactive{% endif %}">
-
+                            <span class="status {% if employee['status']=='Active' %}active{% else %}inactive{% endif %}">
                                 {{ employee["status"] }}
-
                             </span>
-
                         </td>
 
                         <td>
 
-                            <!-- Edit Button -->
-
                             <a href="/edit/{{ employee['id'] }}">
-
                                 <button class="edit">
-
                                     <i class="fa-solid fa-pen"></i>
-
                                 </button>
-
                             </a>
-
-                            <!-- Delete Button -->
 
                             <a href="/delete/{{ employee['id'] }}"
                                onclick="return confirm('Are you sure you want to delete this employee?');">
-
                                 <button class="delete">
-
                                     <i class="fa-solid fa-trash"></i>
-
                                 </button>
-
                             </a>
 
                         </td>
@@ -269,9 +217,7 @@
                     <tr>
 
                         <td colspan="8" style="text-align:center;padding:30px;">
-
                             <strong>No employees found.</strong>
-
                         </td>
 
                     </tr>
@@ -284,12 +230,8 @@
 
         </div>
 
-        <!-- Footer -->
-
         <footer>
-
             © 2026 Employee Management System | Developed using Flask
-
         </footer>
 
     </main>

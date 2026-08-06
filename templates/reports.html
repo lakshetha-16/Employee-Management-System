@@ -1,0 +1,203 @@
+{% extends "base.html" %}
+
+{% block title %}Reports{% endblock %}
+
+{% block content %}
+
+<div class="dashboard">
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+
+        <div class="logo">
+            <i class="fa-solid fa-building"></i>
+            <h2>EMS</h2>
+        </div>
+
+        <ul class="menu">
+
+            <li>
+                <a href="/" style="text-decoration:none;color:inherit;">
+                    <i class="fa-solid fa-house"></i>
+                    <span>Dashboard</span>
+                </a>
+            </li>
+
+            <li>
+                <a href="/employees" style="text-decoration:none;color:inherit;">
+                    <i class="fa-solid fa-users"></i>
+                    <span>Employees</span>
+                </a>
+            </li>
+
+            <li>
+                <a href="/departments" style="text-decoration:none;color:inherit;">
+                    <i class="fa-solid fa-building-user"></i>
+                    <span>Departments</span>
+                </a>
+            </li>
+
+            <li class="active">
+                <a href="/reports" style="text-decoration:none;color:inherit;">
+                    <i class="fa-solid fa-chart-line"></i>
+                    <span>Reports</span>
+                </a>
+            </li>
+
+            <li>
+                <a href="/settings" style="text-decoration:none;color:inherit;">
+                    <i class="fa-solid fa-gear"></i>
+                    <span>Settings</span>
+                </a>
+            </li>
+
+            <li>
+                <a href="/logout" style="text-decoration:none;color:inherit;">
+                    <i class="fa-solid fa-right-from-bracket"></i>
+                    <span>Logout</span>
+                </a>
+            </li>
+
+        </ul>
+
+    </aside>
+
+    <!-- Main Content -->
+
+    <main class="main-content">
+
+        <header class="topbar">
+
+            <div>
+
+                <h1>Reports & Analytics</h1>
+
+                <p>Employee Statistics Overview</p>
+
+            </div>
+
+        </header>
+
+        <!-- Statistics Cards -->
+
+        <section class="cards">
+
+            <div class="card blue">
+
+                <i class="fa-solid fa-users"></i>
+
+                <h3>{{ total_employees }}</h3>
+
+                <p>Total Employees</p>
+
+            </div>
+
+            <div class="card green">
+
+                <i class="fa-solid fa-building"></i>
+
+                <h3>{{ total_departments }}</h3>
+
+                <p>Departments</p>
+
+            </div>
+
+            <div class="card orange">
+
+                <i class="fa-solid fa-briefcase"></i>
+
+                <h3>0</h3>
+
+                <p>Projects</p>
+
+            </div>
+
+            <div class="card red">
+
+                <i class="fa-solid fa-chart-line"></i>
+
+                <h3>100%</h3>
+
+                <p>Attendance</p>
+
+            </div>
+
+        </section>
+
+        <!-- Report Table -->
+
+        <div class="table-section">
+
+            <table>
+
+                <thead>
+
+                    <tr>
+
+                        <th>Report</th>
+
+                        <th>Value</th>
+
+                    </tr>
+
+                </thead>
+
+                <tbody>
+
+                    <tr>
+
+                        <td>Total Employees</td>
+
+                        <td>{{ total_employees }}</td>
+
+                    </tr>
+
+                    <tr>
+
+                        <td>Total Departments</td>
+
+                        <td>{{ total_departments }}</td>
+
+                    </tr>
+
+                    <tr>
+
+                        <td>Total Projects</td>
+
+                        <td>0</td>
+
+                    </tr>
+
+                    <tr>
+
+                        <td>Attendance</td>
+
+                        <td>100%</td>
+
+                    </tr>
+
+                    <tr>
+
+                        <td>System Status</td>
+
+                        <td style="color:green;"><strong>Running</strong></td>
+
+                    </tr>
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+        <footer>
+
+            © 2026 Employee Management System | Reports Module
+
+        </footer>
+
+    </main>
+
+</div>
+
+{% endblock %}

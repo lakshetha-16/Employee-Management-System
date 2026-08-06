@@ -1,0 +1,169 @@
+{% extends "base.html" %}
+
+{% block title %}Employees{% endblock %}
+
+{% block content %}
+
+<div class="dashboard">
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+
+        <div class="logo">
+            <i class="fa-solid fa-building"></i>
+            <h2>EMS</h2>
+        </div>
+
+        <ul class="menu">
+
+            <li>
+                <a href="/" style="text-decoration:none;color:inherit;">
+                    <i class="fa-solid fa-house"></i>
+                    <span>Dashboard</span>
+                </a>
+            </li>
+
+            <li class="active">
+                <a href="/employees" style="text-decoration:none;color:inherit;">
+                    <i class="fa-solid fa-users"></i>
+                    <span>Employees</span>
+                </a>
+            </li>
+
+            <li>
+                <a href="/departments" style="text-decoration:none;color:inherit;">
+                    <i class="fa-solid fa-building-user"></i>
+                    <span>Departments</span>
+                </a>
+            </li>
+
+            <li>
+                <a href="/reports" style="text-decoration:none;color:inherit;">
+                    <i class="fa-solid fa-chart-line"></i>
+                    <span>Reports</span>
+                </a>
+            </li>
+
+            <li>
+                <a href="/settings" style="text-decoration:none;color:inherit;">
+                    <i class="fa-solid fa-gear"></i>
+                    <span>Settings</span>
+                </a>
+            </li>
+
+            <li>
+                <a href="/logout" style="text-decoration:none;color:inherit;">
+                    <i class="fa-solid fa-right-from-bracket"></i>
+                    <span>Logout</span>
+                </a>
+            </li>
+
+        </ul>
+
+    </aside>
+
+    <main class="main-content">
+
+        <header class="topbar">
+
+            <div>
+                <h1>Employees</h1>
+                <p>Manage all employees</p>
+            </div>
+
+            <a href="/add">
+                <button>
+                    <i class="fa-solid fa-plus"></i>
+                    Add Employee
+                </button>
+            </a>
+
+        </header>
+
+        <div class="table-section">
+
+            <table>
+
+                <thead>
+
+                <tr>
+
+                    <th>ID</th>
+                    <th>Photo</th>
+                    <th>Name</th>
+                    <th>Department</th>
+                    <th>Position</th>
+                    <th>Salary</th>
+                    <th>Status</th>
+                    <th>Action</th>
+
+                </tr>
+
+                </thead>
+
+                <tbody>
+
+                {% for employee in employees %}
+
+                <tr>
+
+                    <td>{{ employee["id"] }}</td>
+
+                    <td>
+
+                        <img src="https://ui-avatars.com/api/?name={{ employee['name']|replace(' ','+') }}&background=2563eb&color=fff">
+
+                    </td>
+
+                    <td>{{ employee["name"] }}</td>
+
+                    <td>{{ employee["department"] }}</td>
+
+                    <td>{{ employee["position"] }}</td>
+
+                    <td>₹{{ employee["salary"] }}</td>
+
+                    <td>
+
+                        <span class="status {% if employee['status']=='Active' %}active{% else %}inactive{% endif %}">
+                            {{ employee["status"] }}
+                        </span>
+
+                    </td>
+
+                    <td>
+
+                        <a href="/edit/{{ employee['id'] }}">
+                            <button class="edit">
+                                <i class="fa-solid fa-pen"></i>
+                            </button>
+                        </a>
+
+                        <a href="/delete/{{ employee['id'] }}"
+                        onclick="return confirm('Delete Employee?')">
+
+                            <button class="delete">
+
+                                <i class="fa-solid fa-trash"></i>
+
+                            </button>
+
+                        </a>
+
+                    </td>
+
+                </tr>
+
+                {% endfor %}
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </main>
+
+</div>
+
+{% endblock %}
