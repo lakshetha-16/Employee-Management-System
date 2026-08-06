@@ -1,4 +1,7 @@
-venv/
 __pycache__/
 *.pyc
-*.db
+*.pyo
+*.db-journal
+.env
+venv/
+.venv/
